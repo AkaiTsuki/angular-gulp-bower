@@ -16,8 +16,8 @@ gulp.task('lint', function(){
 });
 
 gulp.task('clean', function() {
-    gulp.src('./dist/*')
-      .pipe(clean({force: true}));
+    return gulp.src('./dist/*')
+      .pipe(clean({force: true, read: false}));
 });
 
 gulp.task('minify-css', function() {
@@ -45,10 +45,9 @@ gulp.task('copy-html-files', ['inject-dev'], function () {
 });
 
 gulp.task('inject-dev', function(){
-  var target = gulp.src('./app/index.html');
-  var sources = gulp.src(['./app/**/*.js', '!./app/bower_components/**'], {read: false});
-
-  return target.pipe(inject(sources)).pipe(gulp.dest('./app'));
+  gulp.src('./app/index.html')
+      .pipe(inject(gulp.src(['**/*.js', '!bower_components/**'], {read: false, 'cwd': __dirname + '/app/'}), {addRootSlash: false}))
+      .pipe(gulp.dest('./app'));
 });
 
 gulp.task('connect', function(){
