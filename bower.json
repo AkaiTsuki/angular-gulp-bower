@@ -1,0 +1,26 @@
+{
+  "name": "angular-gulp-bower",
+  "version": "1.0.0",
+  "authors": [
+    "Jiachi Liu <liu.jiach@husky.neu.edu>"
+  ],
+  "description": "A boilerplate for angular, gulp and bower",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.1",
+    "angular-animate": "~1.4.1",
+    "angular-ui-router": "~0.2.15",
+    "angular-bootstrap": "~0.13.0",
+    "jquery": "~2.1.4",
+    "animate.css": "~3.3.0",
+    "bootstrap": "~3.3.5",
+    "fontawesome": "~4.3.0"
+  }
+}
