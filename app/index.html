@@ -10,7 +10,10 @@
 	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
     <link rel="stylesheet" href="bower_components/fontawesome/css/font-awesome.css"/>
     <link rel="stylesheet" href="bower_components/animate.css/animate.css"/>
-    <link rel="stylesheet" href="app.css"/>
+    <!-- inject:css -->
+    <link rel="stylesheet" href="app.css">
+    <link rel="stylesheet" href="home/home.css">
+    <!-- endinject -->
 </head>
 <body>
 	<div class="container">
@@ -23,9 +26,11 @@
     <script src="bower_components/angular-animate/angular-animate.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <script src="bower_components/angular-bootstrap/ui-bootstrap.js"></script>
+    <script src="bower_components/angular-mocks/angular-mocks.js"></script>
     <!-- inject:js -->
     <script src="app.js"></script>
     <script src="home/home.controller.js"></script>
+    <script src="home/home.service.js"></script>
     <!-- endinject -->
 </body>
 </html>

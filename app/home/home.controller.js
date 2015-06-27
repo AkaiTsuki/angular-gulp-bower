@@ -1,7 +1,7 @@
-(function(){
-	'use strict';
+(function () {
+    'use strict';
 
-	angular.module('angularBoilerplate').controller('HomeController', function($scope){
-		$scope.username = "Test User";
-	});
+    angular.module('angularBoilerplate').controller('HomeController', ['$scope', 'userData', function ($scope, userData) {
+        $scope.username = userData.firstName + " " + userData.lastName;
+    }]);
 })();
