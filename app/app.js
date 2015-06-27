@@ -10,10 +10,8 @@
 
         $stateProvider.state("home", {
           url: "/home",
-          templateUrl: "partials/home.html",
-          controller: function($scope) {
-            $scope.username = "Test User";
-          }
+          templateUrl: "home/home.html",
+          controller: 'HomeController'
         });
     });
     

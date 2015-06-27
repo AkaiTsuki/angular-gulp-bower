@@ -6,6 +6,7 @@ var uglify = require('gulp-uglify');
 var ngmin = require('gulp-ngmin');
 var minifyCSS = require('gulp-minify-css');
 var clean = require('gulp-clean');
+var inject = require('gulp-inject');
 
 gulp.task('lint', function(){
 	gulp.src(['./app/**/*.js', '!./app/bower_components/**'])
@@ -38,9 +39,16 @@ gulp.task('copy-bower-components', function () {
     .pipe(gulp.dest('dist/bower_components'));
 });
 
-gulp.task('copy-html-files', function () {
+gulp.task('copy-html-files', ['inject-dev'], function () {
   gulp.src('./app/**/*.html')
     .pipe(gulp.dest('dist/'));
+});
+
+gulp.task('inject-dev', function(){
+  var target = gulp.src('./app/index.html');
+  var sources = gulp.src(['./app/**/*.js', '!./app/bower_components/**'], {read: false});
+
+  return target.pipe(inject(sources)).pipe(gulp.dest('./app'));
 });
 
 gulp.task('connect', function(){
@@ -57,7 +65,7 @@ gulp.task('connectDist', function () {
 });
 
 gulp.task('default',
-  ['lint', 'connect']
+  ['lint', 'inject-dev', 'connect']
 );
 
 gulp.task('build',
